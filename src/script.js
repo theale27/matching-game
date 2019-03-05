@@ -54,17 +54,13 @@ card.forEach((cardClick, i) => {
   cardClick.addEventListener("click", function(e) {
     // Rotates the card and makes the image visible
     let currentCard = e.srcElement.querySelectorAll("img")[0];
-    e.srcElement.classList.add('card_rotate');
+    e.srcElement.classList.add("card_rotate");
     console.log("e.srcElement", e.srcElement);
 
     setTimeout(function() {
-      currentCard.classList.add('image_reveal');
+      currentCard.classList.add("image_reveal");
       selectedCardArray.push(currentCard.getAttribute("alt"));
-      e.srcElement.classList.remove('card_rotate');
-
-      //TODO: set the card color when clicked then undo the color if hidden
-      console.log("currentCard", currentCard);
-      console.log("selectedCardArray1", selectedCardArray);
+      e.srcElement.classList.remove("card_rotate");
 
       // Stop timer if all pairs have been found
       if (cardArray.length === 1) {
@@ -77,32 +73,28 @@ card.forEach((cardClick, i) => {
         } else {
           console.log("These cards dont match", selectedCardArray);
           setTimeout(function() {
-            // Loops through all cards to match to selectedCardArray then make visible again
+            // Loops through all cards to find matching card then makes them hidden again
             card.forEach((cardSearch, index) => {
               // Get attribute to compare
+              let cardVisible = cardSearch
+                .querySelectorAll("img")[0]
+                .classList.contains("image_reveal");
               let cardAttribute = cardSearch
                 .querySelectorAll("img")[0]
                 .getAttribute("alt");
-              /* let cardVisibility = cardSearch.querySelectorAll("img")[0].style
-                .visibility; */
-
-                console.log("cardSearch", cardSearch);
-                console.log("hi", cardSearch.classList.contains("image_reveal"));
 
               if (
                 (cardAttribute === selectedCardArray[0] ||
                   cardAttribute === selectedCardArray[1]) &&
-                /* cardVisibility === "visible" */
-                cardSearch.classList.contains("image_reveal")
+                cardVisible
               ) {
-                /* cardSearch.style.transform = "rotateY(180deg)"; */
-                cardSearch.srcElement.classList.add('card_reveal');
-                console.log("cardSearch", cardSearch)
-                console.log("cardClick", cardClick)
-                /* cardSearch.querySelectorAll("img")[0].style.visibility =
-                  "hidden"; */
-                  cardSearch.getAttribute("style") = "";
-                  /* cardSearch.style.transform = "rotateY(0)"; */
+                cardSearch.classList.add("card_rotate");
+                setTimeout(function() {
+                  cardSearch
+                    .querySelectorAll("img")[0]
+                    .classList.remove("image_reveal");
+                  cardSearch.classList.remove("card_rotate");
+                }, 100);
               }
             });
             selectedCardArray = [];
@@ -115,5 +107,4 @@ card.forEach((cardClick, i) => {
 });
 
 //TODO: Randomise where the images are placed
-//TODO: add animations for flipping the card
 //!!! Save my settings with that extension
