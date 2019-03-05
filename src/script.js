@@ -49,13 +49,41 @@ checkCard = (cardAttribute, i) => {
   }
 };
 
+//* This function shuffles the array - (Fisher-Yates (aka Knuth) Shuffle)
+shuffle = array => {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+};
+let cardArrayTwo = cardArray.concat(cardArray);
+cardArrayTwo = shuffle(cardArrayTwo);
+
+// Randomise where the images are placed
+card.forEach((cardElement, i) => {
+  let cardImage = cardElement.querySelectorAll("img")[0];
+  cardImage.setAttribute("alt", cardArrayTwo[i]);
+  cardImage.setAttribute("src", `src/img/${cardArrayTwo[i]}.svg`);
+});
+
 //Loops through and adds click function to each div
 card.forEach((cardClick, i) => {
   cardClick.addEventListener("click", function(e) {
     // Rotates the card and makes the image visible
     let currentCard = e.srcElement.querySelectorAll("img")[0];
     e.srcElement.classList.add("card_rotate");
-    console.log("e.srcElement", e.srcElement);
 
     setTimeout(function() {
       currentCard.classList.add("image_reveal");
@@ -105,6 +133,3 @@ card.forEach((cardClick, i) => {
     }, 100);
   });
 });
-
-//TODO: Randomise where the images are placed
-//!!! Save my settings with that extension
