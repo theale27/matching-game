@@ -1,0 +1,19 @@
+{
+  "name": "pokemon-pairs",
+  "version": "1.0.0",
+  "description": "Matching game for coding challenge 14",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theale27/pokemon-pairs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theale27/pokemon-pairs/issues"
+  },
+  "homepage": "https://github.com/theale27/pokemon-pairs#readme"
+}
