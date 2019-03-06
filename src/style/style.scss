@@ -4,46 +4,53 @@ html {
   height: 100%;
 }
 
+body {
+  background: linear-gradient(300deg, #c7a008, #ffcb05);
+}
+
 header {
   h1 {
     text-align: center;
     font-size: 3rem;
     color: black;
     margin: 1rem;
+    font-family: "Press Start 2P", cursive;
+    color: black;
+    text-shadow: 2px 2px 5px #808080;
   }
   #game-details {
+    max-width: 45rem;
+    margin: 0 auto 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    margin-bottom: 1rem;
     align-items: center;
+    #reset:hover {
+      transform: rotate(360deg);
+      transition: all 0.5s linear;
+    }
   }
 }
 
 #game-board {
   max-width: 45rem;
-  background-color: white;
   margin: 0 auto;
   border-radius: 1rem;
-  background: #fc466b;
-  background: linear-gradient(300deg, #3f5efb, #fc466b);
-  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
   padding: 1.5rem;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: space-evenly;
 
-  div {
+  .card {
     background: repeating-linear-gradient(
       45deg,
-      #4f646f,
-      #4f646f 10px,
-      #7b919d 0,
-      #7b919d 20px
+      #1d2c5e,
+      #1d2c5e 10px,
+      #306cb4 0,
+      #306cb4 20px
     );
     border: 1px solid black;
     border-radius: 1rem;
@@ -53,14 +60,11 @@ header {
     cursor: pointer;
     transition: all 0.3s ease-out;
 
-    &:active {
-      background-color: blue;
-    }
     > img {
       visibility: hidden;
     }
     &.card_rotate {
-      transform: rotateY(180deg) !important;
+      transform: rotateY(180deg);
     }
     .image_reveal {
       visibility: visible;

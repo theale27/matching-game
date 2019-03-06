@@ -1,17 +1,19 @@
 html { height: 100%; }
 
-header h1 { text-align: center; font-size: 3rem; color: black; margin: 1rem; }
+body { background: linear-gradient(300deg, #c7a008, #ffcb05); }
 
-header #game-details { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; margin-bottom: 1rem; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+header h1 { text-align: center; font-size: 3rem; color: black; margin: 1rem; font-family: "Press Start 2P", cursive; color: black; text-shadow: 2px 2px 5px #808080; }
 
-#game-board { max-width: 45rem; background-color: white; margin: 0 auto; border-radius: 1rem; background: #fc466b; background: linear-gradient(300deg, #3f5efb, #fc466b); -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75); box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75); padding: 1.5rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-line-pack: start; align-content: flex-start; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
+header #game-details { max-width: 45rem; margin: 0 auto 1rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-#game-board div { background: repeating-linear-gradient(45deg, #4f646f, #4f646f 10px, #7b919d 0, #7b919d 20px); border: 1px solid black; border-radius: 1rem; text-align: center; padding: 1rem 1rem; margin: 0.25rem; cursor: pointer; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+header #game-details #reset:hover { -webkit-transform: rotate(360deg); transform: rotate(360deg); -webkit-transition: all 0.5s linear; transition: all 0.5s linear; }
 
-#game-board div:active { background-color: blue; }
+#game-board { max-width: 45rem; margin: 0 auto; border-radius: 1rem; padding: 1.5rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-line-pack: start; align-content: flex-start; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
 
-#game-board div > img { visibility: hidden; }
+#game-board .card { background: repeating-linear-gradient(45deg, #1d2c5e, #1d2c5e 10px, #306cb4 0, #306cb4 20px); border: 1px solid black; border-radius: 1rem; text-align: center; padding: 1rem 1rem; margin: 0.25rem; cursor: pointer; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 
-#game-board div.card_rotate { -webkit-transform: rotateY(180deg) !important; transform: rotateY(180deg) !important; }
+#game-board .card > img { visibility: hidden; }
 
-#game-board div .image_reveal { visibility: visible; }
+#game-board .card.card_rotate { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
+
+#game-board .card .image_reveal { visibility: visible; }
